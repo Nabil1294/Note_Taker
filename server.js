@@ -49,6 +49,27 @@ app.post('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './db/db.json'));
 });
 
+// removing note from notes array in db file
+app.delete('/api/notes/:id', (req, res) => {
+    // get data from db file
+    const data = fs.readFileSync(path.join(__dirname, './db/db.json'));
+    // Parse the JSON data into a JavaScript object
+    const jsonData = JSON.parse(data);
+    // looking for the note id that matches the requested note id
+    const noteIndex = jsonData.findIndex(note => note.id === req.params.id);
+    // removing selected note
+    jsonData.splice(noteIndex, 1);
+    // adding updated array to db.json file and looking for err
+    try {
+        fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(jsonData));
+        console.log(`File updated and note has been removed ${req.params.id}`);
+    } catch (err) {
+        console.error("Failed to remove note:", err);
+    }
+    // sending db.json file with new notes added
+    res.sendFile(path.join(__dirname, './db/db.json'));
+})
+
 
 // listen() method is responsible for listening for incoming connections on the specified port
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
