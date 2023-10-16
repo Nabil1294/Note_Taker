@@ -36,6 +36,11 @@
   ![Screenshot 1](assets/screen1.png)
   ![Screenshot 2](assets/screen2.png)
 
+  ## Deployment Links
+
+  1. Heroku_link: https://boiling-savannah-10586-5ca514b51a47.herokuapp.com/
+  2. github_link: https://nabil1294.github.io/Note_Taker/
+
   ## Credits
 https://www.educative.io/answers/how-to-add-data-to-a-json-file-in-javascript
 https://javascript.plainenglish.io/javascript-remove-element-from-array-by-id-9c548f2aa27b#:~:text=The%20Array%20filter()%20Method,object%20with%20the%20specified%20ID.
